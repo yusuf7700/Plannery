@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlannerY</title>
+
+    <link rel="stylesheet" href="plannery.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar">
+    
+            <h2>PlannerY</h2>
+    
+            <nav>
+    
+                <a href="#" class="active">🏠 Dashboard</a>
+                <a href="#">✅ Vazifalar</a>
+                <a href="#">💰 Xarajatlar</a>
+                <a href="#">📅 Kalendar</a>
+                <a href="#">🎯 Maqsadlar</a>
+    
+            </nav>
+    
+        </aside>
+    
+        <main class="content">
+    
+            <header>
+    
+                <div>
+                    <h1>Assalomu alaykum, Yusuf 👋</h1>
+                    <p>Bugunni rejalashtir. Ertaga natijasini ko'r.</p>
+                </div>
+    
+            </header>
+    
+            <section class="task-box">
+    
+                <h2>Yangi vazifa</h2>
+    
+                <div class="task-form">
+    
+                    <input
+                        id="taskInput"
+                        type="text"
+                        placeholder="Masalan: JavaScript o'rganish"
+                    >
+    
+                    <button id="addTaskBtn">
+                        Qo'shish
+                    </button>
+    
+                </div>
+    
+            </section>
+    
+            <section class="stats">
+    
+                <div class="card">
+                    <h3>Jami</h3>
+                    <span id="totalTasks">0</span>
+                </div>
+    
+                <div class="card">
+                    <h3>Bajarilgan</h3>
+                    <span id="completedTasks">0</span>
+                </div>
+    
+                <div class="card">
+                    <h3>Qolgan</h3>
+                    <span id="remainingTasks">0</span>
+                </div>
+    
+            </section>
+    
+            <section>
+    
+                <h2>Bugungi vazifalar</h2>
+    
+                <ul id="taskList"></ul>
+    
+            </section>
+    
+        </main>
+    
+    </div>
+    
+    
+    <script src="plannery.js"></script>
+
+</body>
+
+</html>
