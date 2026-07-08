@@ -1,3 +1,20 @@
+const welcomeText = document.getElementById("welcomeText");
+
+let userName = localStorage.getItem("plannerYUser");
+
+if (!userName) {
+
+    userName = prompt("Assalomu alaykum! 😊\n\nIsmingizni kiriting:");
+
+    if (!userName || userName.trim() === "") {
+        userName = "Do'stim";
+    }
+
+    localStorage.setItem("plannerYUser", userName);
+
+}
+
+welcomeText.textContent = `Assalomu alaykum, ${userName} 👋`;
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
