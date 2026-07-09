@@ -2,97 +2,302 @@
 <html lang="uz">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlannerY</title>
 
-    <link rel="stylesheet" href="plannery.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PlannerY</title>
+
+<link rel="stylesheet" href="plannery.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-    <div class="app">
+<div class="background"></div>
 
-        <aside class="sidebar">
-    
-            <h2>PlannerY</h2>
-    
-            <nav>
-    
-                <a href="#" class="active">🏠 Dashboard</a>
-                <a href="#">✅ Vazifalar</a>
-                <a href="#">💰 Xarajatlar</a>
-                <a href="#">📅 Kalendar</a>
-                <a href="#">🎯 Maqsadlar</a>
-    
-            </nav>
-    
-        </aside>
-    
-        <main class="content">
-    
-            <header>
-    
-                <div>
-                    <h1 id="welcomeText"></h1>
-                    <p>Bugunni rejalashtir. Ertaga natijasini ko'r.</p>
-                </div>
-    
-            </header>
-    
-            <section class="task-box">
-    
-                <h2>Yangi vazifa</h2>
-    
-                <div class="task-form">
-    
-                    <input
-                        id="taskInput"
-                        type="text"
-                        placeholder="Masalan: JavaScript o'rganish"
-                    >
-    
-                    <button id="addTaskBtn">
-                        Qo'shish
-                    </button>
-    
-                </div>
-    
-            </section>
-    
-            <section class="stats">
-    
-                <div class="card">
-                    <h3>Jami</h3>
-                    <span id="totalTasks">0</span>
-                </div>
-    
-                <div class="card">
-                    <h3>Bajarilgan</h3>
-                    <span id="completedTasks">0</span>
-                </div>
-    
-                <div class="card">
-                    <h3>Qolgan</h3>
-                    <span id="remainingTasks">0</span>
-                </div>
-    
-            </section>
-    
-            <section>
-    
-                <h2>Bugungi vazifalar</h2>
-    
-                <ul id="taskList"></ul>
-    
-            </section>
-    
-        </main>
-    
-    </div>
-    
-    
-    <script src="plannery.js"></script>
+<!--================ MODAL ================-->
+
+<div id="nameModal" class="modal">
+
+<div class="modal-box">
+
+<h2>👋 PlannerY'ga xush kelibsiz</h2>
+
+<p>Davom etish uchun ismingizni kiriting.</p>
+
+<input
+id="nameInput"
+type="text"
+placeholder="Masalan: Yusuf">
+
+<button id="saveName">
+
+Davom etish
+
+</button>
+
+</div>
+
+</div>
+
+<!--================ APP ================-->
+
+<div class="app">
+
+<!--================ SIDEBAR ================-->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<div class="logo-circle">
+
+Y
+
+</div>
+
+<h2>PlannerY</h2>
+
+</div>
+
+<nav>
+
+<a class="active">🏠 Dashboard</a>
+
+<a>✅ Vazifalar</a>
+
+<a>💰 Xarajatlar</a>
+
+<a>📅 Kalendar</a>
+
+<a>🎯 Maqsadlar</a>
+
+<a>⚙ Sozlamalar</a>
+
+</nav>
+
+</aside>
+
+<!--================ CONTENT ================-->
+
+<main class="content">
+
+<header>
+
+<div>
+
+<h1 id="welcomeText">
+
+Assalomu alaykum 👋
+
+</h1>
+
+<div class="date-box">
+
+<p id="todayDate"></p>
+
+<p id="liveTime"></p>
+
+</div>
+
+</div>
+
+<div class="profile">
+
+<div class="avatar" id="avatar">
+
+Y
+
+</div>
+
+<div>
+
+<h3 id="userName">
+
+Foydalanuvchi
+
+</h3>
+
+<span>
+
+PlannerY User
+
+</span>
+
+</div>
+
+</div>
+
+</header>
+
+<!--================ PROGRESS ================-->
+
+<section class="progress-card">
+
+<div>
+
+<h2>
+
+Bugungi Progress
+
+</h2>
+
+<p>
+
+Bugungi vazifalaringiz.
+
+</p>
+
+</div>
+
+<div class="progress-box">
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+
+</div>
+
+</div>
+
+<span id="progressPercent">
+
+0%
+
+</span>
+
+</div>
+
+</section>
+
+<!--================ STATS ================-->
+
+<section class="stats">
+
+<div class="card">
+
+<h3>📋 Jami</h3>
+
+<h1 id="totalTasks">
+
+0
+
+</h1>
+
+</div>
+
+<div class="card">
+
+<h3>✅ Bajarilgan</h3>
+
+<h1 id="completedTasks">
+
+0
+
+</h1>
+
+</div>
+
+<div class="card">
+
+<h3>⏳ Qolgan</h3>
+
+<h1 id="remainingTasks">
+
+0
+
+</h1>
+
+</div>
+
+</section>
+
+<!--================ TASK ADD ================-->
+
+<section class="task-add">
+
+<h2>
+
+Yangi vazifa
+
+</h2>
+
+<div class="task-input">
+
+<input
+id="taskInput"
+type="text"
+placeholder="Masalan: JavaScript o'rganish">
+
+<button id="addTaskBtn">
+
+Qo'shish
+
+</button>
+
+</div>
+
+</section>
+
+<!--================ TASKS ================-->
+
+<section class="tasks">
+
+<h2>
+
+Bugungi vazifalar
+
+</h2>
+
+<ul id="taskList">
+
+</ul>
+
+</section>
+
+<!--================ EXPENSE ================-->
+
+<section class="expense">
+
+<h2>
+
+💰 Bugungi xarajat
+
+</h2>
+
+<h1 id="expenseAmount">
+
+0 so'm
+
+</h1>
+
+<p>
+
+Tez orada xarajatlar moduli qo'shiladi.
+
+</p>
+
+</section>
+
+</main>
+
+</div>
+
+<!--================ TOAST ================-->
+
+<div id="toast">
+
+</div>
+
+<script src="plannery.js"></script>
 
 </body>
 
